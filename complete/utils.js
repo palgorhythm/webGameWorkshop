@@ -1,10 +1,10 @@
-function createObstacle() {
+function createObstacle(color) {
   const height = getRandomNumberBetween(20, canvas.height / 2)
   const gap = getRandomNumberBetween(50, canvas.height / 2)
   const newTopObstacle = createGameComponent(
     10,
     height,
-    'green',
+    color,
     canvas.width,
     0
   )
@@ -13,7 +13,7 @@ function createObstacle() {
     10,
     // fills up the space between its Y position and bottom of canvas
     canvas.height - bottomObstacleYposition,
-    'green',
+    color,
     canvas.width,
     bottomObstacleYposition
   )

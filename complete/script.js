@@ -22,11 +22,15 @@ let gameObstacles = []
 // make the space bar change the acceleration of the game piece
 document.addEventListener('keydown', keyDownHandler)
 document.addEventListener('keyup', keyUpHandler)
-function keyDownHandler() {
-  gamePiece.acceleration = THRUST_POWER
+function keyDownHandler(e) {
+  if(e.keyCode === 65){
+    gamePiece.acceleration = THRUST_POWER
+  }
 }
-function keyUpHandler() {
-  gamePiece.acceleration = GRAVITY
+function keyUpHandler(e) {
+  if(e.keyCode === 65){
+    gamePiece.acceleration = GRAVITY
+  }
 }
 
 // make the game state update happen over and over again!
@@ -39,7 +43,7 @@ function updateGame() {
   }
   clearCanvas() // try removing this and seeing what happens :]
   if (frameNumber % 150 === 0) {
-    createObstacle()
+    createObstacle('green')
   }
   updateObstacles()
   updateScore()
